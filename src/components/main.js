@@ -1,11 +1,44 @@
 import React from 'react'
 import HornedBeasts from './HornedBeasts'
-
+import json from './data.json'
+import CardColumns from 'react-bootstrap/CardColumns'
+// import Modal from 'react-bootstrap/Modal'
+import SelectedBeast from './SelectedBeast'
 class Main extends  React.Component{
+    constructor(props){
+        super(props)
+        this.state ={
+            data :json
+        }
+
+passedFunction  = () => {
+
+    this.props.passFunction
+
+}
+
+    }
     render(){
         return(
             <div>
-<HornedBeasts animalName={'UniWhal'} picture ={'http://3.bp.blogspot.com/_DBYF1AdFaHw/TE-f0cDQ24I/AAAAAAAACZg/l-FdTZ6M7z8/s1600/Unicorn_and_Narwhal_by_dinglehopper.jpg'}  desciption={'A unicorn and a narwhal nuzzling their horns'}/>
+               
+{this.state.data.map(item =>(
+     <CardColumns>
+   <HornedBeasts 
+   picture= {item.image_url}
+   animalName = {item.title}
+   desciption ={item.description}
+
+   >
+<SelectedBeast/>
+   </HornedBeasts>
+   </CardColumns>
+) )}
+
+
+
+
+{/* <HornedBeasts animalName={'UniWhal'} picture ={'http://3.bp.blogspot.com/_DBYF1AdFaHw/TE-f0cDQ24I/AAAAAAAACZg/l-FdTZ6M7z8/s1600/Unicorn_and_Narwhal_by_dinglehopper.jpg'}  desciption={'A unicorn and a narwhal nuzzling their horns'}/>
 <HornedBeasts animalName={'Rhino Family'} picture={'https://images.unsplash.com/photo-1512636618879-bbe79107e9e3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bd9460ee6d1ddbb6b1ca7be86dfc4590&auto=format&fit=crop&w=1825&q=80'}desciption ={'Mother (or father) rhino with two babies'}/>
 <HornedBeasts animalName={'Unicorn Head'} picture={'https://www.dhresource.com/0x0s/f2-albu-g5-M00-1A-11-rBVaI1hsIIiALxKzAAIHjSU3VkE490.jpg/wholesale-halloween-costume-prop-unicorn.jpg'}desciption ={'Someone wearing a creepy unicorn head mask'}/>
 <HornedBeasts animalName={'UniLego'} picture={'https://images.unsplash.com/photo-1518946222227-364f22132616?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4836a6fca62e7dce9324346bacfde085&auto=format&fit=crop&w=2534&q=80'}desciption ={'Lego figurine dressed in a unicorn outfit'}/>
@@ -24,7 +57,7 @@ class Main extends  React.Component{
 <HornedBeasts animalName={'Happy Jacksons Chameleon'} picture={'https://images.unsplash.com/photo-1514036783265-fba9577fc473?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80'}desciption ={'These are really common in Hawaii'}/>
 <HornedBeasts animalName={'Serious Jacksons Chameleon'} picture={'https://imgc.allpostersimages.com/img/print/posters/dlillc-jackson-s-chameleon_a-G-13448768-14258384.jpg'}desciption ={'This one is very serious.'}/>
 v<HornedBeasts animalName={'Horned Lizard'} picture={'https://www.nps.gov/band/learn/nature/images/short-horned-lizard-open-mouth-18.jpg?maxwidth=650&autorotate=false'}desciption ={'Fave food: ants'}/>
-<HornedBeasts animalName={'Smaug'} picture={'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Smaug_par_David_Demaret.jpg/290px-Smaug_par_David_Demaret.jpg'}desciption ={'Fan illustration of Smaug from The Hobbit'}/>
+<HornedBeasts animalName={'Smaug'} picture={'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Smaug_par_David_Demaret.jpg/290px-Smaug_par_David_Demaret.jpg'}desciption ={'Fan illustration of Smaug from The Hobbit'}/> */}
 
 
             </div>

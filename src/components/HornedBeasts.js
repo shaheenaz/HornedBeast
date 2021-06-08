@@ -18,6 +18,7 @@ numOffav=()=>(
     this.setState({
         favorite : this.state.favorite+1}
     )
+
 )
 
 
@@ -35,8 +36,8 @@ render(){
 
 
 
-<CardColumns>
-                <Card style={{ width: '18rem' }}>
+
+                <Card onClick={this.props.open}style={{ width: '18rem' }}>
   <Card.Img variant="top" onClick={this.numOffav}src={this.props.picture} />
   <Card.Body>
     <Card.Title>{this.props.animalName}</Card.Title>
@@ -48,7 +49,7 @@ render(){
   </Card.Body>
 </Card>
 
-</CardColumns>
+
 
 
         </div>
