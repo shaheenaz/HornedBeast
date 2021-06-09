@@ -10,7 +10,8 @@ class HornedBeasts extends React.Component{
 constructor(props){
     super(props)
     this.state = {
-        favorite : 0
+        favorite : 0,
+        horns : ''
     }
 }
 
@@ -20,7 +21,6 @@ numOffav=()=>(
     )
 
 )
-
 
 
 
@@ -44,6 +44,7 @@ render(){
     <Card.Text>
     {this.props.desciption}
     favorite 💟:{this.state.favorite}
+    horns: {this.props.horns}
     </Card.Text>
     <Button variant="primary">Go somewhere</Button>
   </Card.Body>

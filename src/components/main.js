@@ -2,25 +2,83 @@ import React from 'react'
 import HornedBeasts from './HornedBeasts'
 import json from './data.json'
 import CardColumns from 'react-bootstrap/CardColumns'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+
+
 // import Modal from 'react-bootstrap/Modal'
-import SelectedBeast from './SelectedBeast'
+// import SelectedBeast from './SelectedBeast'
 class Main extends  React.Component{
     constructor(props){
         super(props)
         this.state ={
-            data :json
+            data :json,
+            horns: ''
+
+        }}
+
+        submitForm = (event) => {
+            event.preventDefault();
+            this.data.horns.filter((hor)=>{
+                if(hor.horns === 1){
+                    return true
+                }
+               
+            })
         }
 
-passedFunction  = () => {
+      numofHorns = () =>{ 
+         
+        //   console.log(this.numofHorns())
+          
+      }
 
-    this.props.passFunction
+    //   lee =() =>{ 
 
-}
+    //       data.filter((horn) =>{
+    //           if(horn.horns === 1) {
+    //               return true
+                 
+    //           }
 
-    }
+    //       }
+    //       )
+
+        
+    //   }
+    //         if(horn.horns === 1) {
+    //             return true
+    //         }})
+    
+
+
+
+// passedFunction  = () => {
+
+//     this.props.passFunction
+
+// }
+
+
+    
     render(){
         return(
             <div>
+                       <Form onSubmit ={this.submitForm} >
+  <Form.Group controlId="exampleForm.SelectCustom">
+    <Form.Label>select numbers of horns</Form.Label>
+    <Form.Control as="select" custom name="hornsNum">
+      <option value='one'>one</option>
+      <option value='two'>two</option>
+      <option value="three">three</option>
+      <option value="four">four</option>
+      <option value="wow">100</option>
+    </Form.Control>
+  </Form.Group>
+  <Button type="submit" className="my-1">
+    Submit
+  </Button>
+</Form>
                
 {this.state.data.map(item =>(
      <CardColumns>
@@ -28,9 +86,13 @@ passedFunction  = () => {
    picture= {item.image_url}
    animalName = {item.title}
    desciption ={item.description}
+  
+   horns = {this.state.submitForm}
+
 
    >
-<SelectedBeast/>
+  
+{/* <SelectedBeast/> */}
    </HornedBeasts>
    </CardColumns>
 ) )}
